@@ -1,92 +1,37 @@
 # Icy Flow Game
 
+> Developed as the final project for the CS50x course by Harvard.
+
 #### Video Demo:  [Icy Flow Game - Youtube](https://youtu.be/Vu_xTYIfh-I?si=Wwo32r6HDzhYE2cO)
 **Created by:** Sabarish Hari Iyer  
 **Location:** Chennai, India  
 **Project Completion Date:** 30/12/2024  
+**Production Build - Unity Project:** [Download Project](https://drive.google.com/file/d/1-3y6Ip7FqW9NjBLu4-JDA5hSSYzWRClJ/view?usp=drive_link)  
+**Game Build:** [Download Game](https://drive.google.com/file/d/1-68vPcPWSAutAEM33d-5EIqTA1cR5lEm/view?usp=drive_link)  
+**GitHub Repository:** [Source Code](https://github.com/Sabarish-2/Icy-Flow-Game)  
+
+
+## Installation and Setup  
+
+### To Play Game
+1. Download the Game build directly from the provided link above.  
+2. Extract the files from the downloaded archive.  
+3. Locate and run the `Icy.exe` executable file to start the game.  
+4. Enjoy the endless runner adventure!  
+
+### To Check Unity Project
+1. Clone the repository from the GitHub link or download the Production Build from link provided above.  
+2. Open the project in Unity (recommended version: Unity 6 or later).  
+3. Check out my game with all the core details.  
+4. If you feel like it, modify the code and change the game mechanics as per your choice.  
 
 ---
 
 ### Description:
-Icy Flow Game is a 2D endless runner designed to challenge players’ reflexes and decision-making abilities. Created using Unity 2D, this game offers a minimalist but engaging gameplay experience. The main objective is to control an ice block, navigating through obstacles while collecting water and avoiding fire. The difficulty of the game increases progressively as spawn rates of water and fire intensify with time. With vertical controls, players can only move up or down to survive in this endless adventure, making the game both intuitive and captivating.  
+Icy Flow Game is a 2D endless runner game. It has a goal of getting a big score, which introduces competitiveness. It was created using Unity 6. This game offers minimalistic graphics with a blue themed design. The objective is to control an ice block, navigating through obstacles while collecting water and avoiding fire. The difficulty of the game increases progressively as speed of approaching water and fire increases with time. With vertical controls, players can only move up or down to survive in this endless adventure, with a twist of a slippery approach while moving to give a feeling of ice.  
 
-This project is a testament to the creativity and technical skills of its developer, Sabarish Hari Iyer, who has meticulously crafted an experience that keeps players hooked. The game’s mechanics are designed to offer increasing challenges, ensuring that every run feels fresh and engaging. Players are rewarded for their precision and speed as they aim to achieve higher scores while managing their health bar effectively.
+Upon opening, you will be greeted with the Main Menu which will have the 3 buttons: Play, How to Play and Quit, which serves the same purpose. It was a lot easier here to just create a canvas and create 3 buttons, out of which one (How to Play) just reuses the same canvas with switching between text and buttons to be shown. Up until here, almost everything was done without coding, just with the Unity inbuilt functions. But, when we enter Play, the game switches between scenes and goes to GameScene, where the game starts to play. From here on everything was mostly coding in C# for unity. Except for graphics, which I wasn't interested in, so just used the default GameObjects and just changing colors to make it look good and different. This game provides an infinite gameplay experience with the help of a spawner which uses a code to spawn other objects using prefabs that I created. Which also increases the difficulty with time, up to a certain extent and caps it there to make it playable infinitely. The random spawner makes it completely unpredictable for the player, even after playing it a lot of times. It has a simple control for ice to move vertically, since horizontal movement is automatically calculated based on time. I achieved this with Unity's built-in InputSystem which helps us get the key presses on the keyboard in our code. You can use W / S to move Up / Down as well as arrow keys (Up / Down) respectively. This makes this game easy to play and fun for anyone. The How to Play section in main menu provides these details. It also includes the details about collecting water for health or bonus score and fire to be avoided with a pictorial representation of what to expect as water and fire since I am not a good designer. I created 2 PreFabs - Water and Fire with code accordingly. The health of the Ice starts with 3 and increases if water is collected. To avoid stacking infinite health, it is capped at 5 and the player will get bonus points added to the score. Collecting Fire reduces the health by 1. All of these are handled by a game manager which contains the code for them. If health reaches 0, the Game Over screen is shown from where we can restart or quit the game or go back to menu. The Game Over screen also displays the score obtained by the player. I also created a Pause screen to stop the game at any moment and go to menu or quit the game. Here I used the similar functionality of creating a single canvas and handle both Pause and Game Over. But here the canvas was much more difficult, since I needed for the score and health to be shown in the same game screen as the game played. Figured it out later, but still kind of a mess, which I think unity should make a little easier, at least for beginners.
 
----
-
-## Key Features  
-- **Endless Runner Gameplay:** The game offers an infinite gameplay experience, where players strive to achieve the highest score possible. The endless nature ensures replayability and fun.  
-- **Simple Vertical Controls:** Navigate through the game using just **W/S** or **Up/Down arrow keys**, making it accessible to players of all skill levels.  
-- **Dynamic Scoring System:** Points are awarded over time. Collecting water boosts health or provides a bonus when health is full, while fire decreases health, adding a strategic layer to the gameplay.  
-- **Health System:**  
-  - Start with 3 health points, ensuring a fair challenge for beginners.  
-  - Max health is capped at 5. Collecting additional water when at full health grants a score bonus of 10.  
-  - Health drops to 0 results in a game over, prompting players to strategize and avoid hazards.  
-- **Randomized Spawn Rates:** Water and fire appear randomly, with spawn rates increasing as the game progresses, keeping players on their toes.  
-- **Multi-Scene Integration:**  
-  - **Main Menu:** Offers an overview of the game and a “How to Play” panel.  
-  - **Game Scene:** The heart of the gameplay experience.  
-  - **Pause Screen:** Allows players to pause and take a break during gameplay.  
-  - **Game Over Screen:** Displays the player’s final score, motivating them to try again.  
+Icy Flow Game, developed using Unity 2D, has its coding done in C#. It gave the opportunity for me to learn a new language and learn a whole mixture of syntax. I used the Microsoft Visual Studio for coding which was of a great help for me to learn the syntax and know if there was an error. Especially, the fact that if I miss an error and go to unity to check my build, it shows the same error there as well! Another benefit of using drag-and-drop feature for public or SerializedField variables made it feel like I was coding inside of Unity.
 
 ---
-
-## Game Mechanics  
-The gameplay revolves around maintaining health while maximizing score. Players must collect water to survive and avoid fire to prevent health loss. The mechanics are simple yet challenging:  
-
-1. **Player Controls:**  
-   - Press **W or Up Arrow** to move the ice block upward.  
-   - Press **S or Down Arrow** to move the ice block downward.  
-
-2. **Health Management:**  
-   - Begin the game with 3 health points.  
-   - Collecting water increases health, up to a maximum of 5.  
-   - Picking up fire decreases health by 1.  
-   - Health reaching 0 triggers a game over.  
-
-3. **Scoring System:**  
-   - Score increases automatically over time.  
-   - Bonus points are awarded for collecting water when health is full, encouraging skilled gameplay.  
-
-4. **Increasing Difficulty:**  
-   - As time progresses, the spawn rates of water and fire increase, requiring quicker reflexes and better decision-making.  
-
----
-
-## Development Details  
-Icy Flow Game was developed using Unity 2D, a powerful game engine known for its versatility and ease of use. The project was coded in C#, leveraging its robust features to create seamless gameplay mechanics. All aspects of the game, from its design to implementation, were completed by Sabarish Hari Iyer in Chennai, India.  
-
-This project demonstrates proficiency in Unity and C#, showcasing the ability to create a polished, fun, and replayable game. The minimalist art style and straightforward controls make the game accessible, while the increasing difficulty ensures it remains engaging for all players.  
-
----
-
-## Installation and Setup  
-
-### For Players  
-1. Download the production build directly from the provided link below.  
-2. Extract the files from the downloaded archive.  
-3. Locate and run the executable file to start the game.  
-4. Enjoy the endless runner adventure!  
-
-### For Developers  
-1. Clone the repository from the GitHub link provided below.  
-   ```bash  
-   git clone https://github.com/<username>/IcyFlowGame.git  
-   ```  
-2. Open the project in Unity (recommended version: 2022.3 or later).  
-3. Build and run the project within Unity to experience the game.  
-4. Explore and modify the code to learn from or enhance the game mechanics.  
-
----
-
-## Links  
-- **Production Build:** [Download Here]()  
-- **Game Build:** [Link Here]()  
-- **GitHub Repository:** [View Source Code](https://github.com/Sabarish-2/Icy-Flow-Game)  
-
----
-
-## Summary  
-Icy Flow Game provides a blend of simplicity and challenge, offering players an endless adventure that tests their reflexes and strategic thinking. Its intuitive controls make it easy to pick up and play, while the increasing difficulty ensures long-term engagement. By combining vertical movement mechanics with randomized obstacles and collectibles, the game creates a dynamic experience that rewards skill and perseverance.  
-
-Whether you’re a casual gamer looking for a quick challenge or a developer seeking inspiration, Icy Flow Game delivers a compact yet impactful gaming experience. Download the game today and see how long you can survive the icy flow!  
